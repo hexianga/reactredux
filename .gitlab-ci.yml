@@ -1,0 +1,32 @@
+
+
+build:
+  when: manual
+  tags:
+    - npm
+  script:
+    - "pwd"
+    - "npm install && npm run build"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
