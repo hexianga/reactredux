@@ -4,14 +4,10 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    // decorators 和 class-properties 的顺序很重要，不能颠倒
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose" : true }],
     "@babel/plugin-transform-runtime",
-    "react-hot-loader/babel",
-    "@babel/plugin-proposal-class-properties",
-    [
-      "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true // 必须配置该参数否则编译报错
-      }
-    ]
+    "react-hot-loader/babel"
   ]
 }

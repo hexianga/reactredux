@@ -12,7 +12,7 @@
 
 ## redux 相关
 
-1. 订阅了 redux 中 state 的组件在 state 发生变化的时候就可能会重新渲染,没有订阅 state 的组件一定要不会重新渲染
+1. 订阅了 redux 中 state 的组件在 state 发生变化的时候就可能会重新渲染, 没有订阅 state 的组件一定要不会重新渲染
 可能会重新渲染？
  
  新的 state 和之前的 state 会进行比较，这里的值比较仅仅是进行了一次浅比较，比较了值的长度和对应的值，和纯组件中的比较一样。
@@ -28,4 +28,4 @@
     
     Component 父类函数:
     
-    function Component(props, context, updater) {
+    function Component(props, context, updater) 

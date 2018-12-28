@@ -3,9 +3,9 @@ import Home from './home';
 import HomeTest from './hometest';
 
 class HomeContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     const props = this.props;

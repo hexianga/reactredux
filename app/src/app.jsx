@@ -44,7 +44,7 @@ function requestReducer(state = initState.httpStatus, action) {
     case ACTIONS.REQUESTSTART: {
       return {
         ...state,
-        loading: true,
+        // loading: true,
       };
     }
     case ACTIONS.REQUESTSUCCESS: {

@@ -102,7 +102,6 @@ webpack 相关：
 
 官方推荐使用 `.babelrc` 写配置文件：
 
-
 ## 难点一：路径？相对路径和绝对路径
 
 两个函数，参数是字符串，返回的也是字符串。
@@ -154,13 +153,12 @@ webpackmerge 和 object.assign 有什么区别呢？
 
 webpack 官方推荐为生产环境和开发环境各写一个 webpack 配置，但是保留公用的配置，通过 webpack-merge 对公用的配置进行合并。
 
-
 ## 其它
 
 mode:
 
-development：启用 webpack 内置的开发环境策略。
-production：启用 webpack 内置的产品优化策略。比如会启用 uglifyJsPlugin 插件压缩 js 代码。
+- development：启用 webpack 内置的开发环境策略。
+- production：启用 webpack 内置的产品优化策略。比如会启用 uglifyJsPlugin 插件压缩 js 代码。
 
 verbose：详细信息。
 
@@ -169,12 +167,9 @@ verbose：详细信息。
     const CleanWebpackPlugin = require('clean-webpack-plugin');
     // 在编译之前删除指定目录，一般不使用这个插件，而是使用 rimraf 这个工具来删除之前编译生成的包
 
-
 output.filename: 指定入口文件对应的输出。同时如果 output.chunkFilename 未指定，那么非入口文件的输出文件名会根据 output.filename 推断出来，同时 name 会被 id 替代。
 
-
 正则表达式：`/.|\n/`: 其中 `.` 表示所有的除了 `\n` 之外的所有字符。
-
 
 sass-loader：其中 node-sass 是 sass-loader 的 peerDependency，
 
@@ -183,7 +178,7 @@ sass-loader：其中 node-sass 是 sass-loader 的 peerDependency，
 全局安装 `eslint` 后执行 `eslint --init`, 自动生成配置文件。
 Eslint 会自动去 `.eslintrc.*` 或者 `package.json` 中去找配置文件。`package.json` 中的属性应该是 `eslintConfig`。
 
-默认情况下，`ESLint` 支持 `ECMAScript 5` 语法。你可以覆盖该设置，以启用对 `ECMAScript` 其它版本和 `JSX` 的支持。
+默认情况下，`ESLint` 支持 `ECMAScript 5` 语法。可以覆盖该设置，以启用对 `ECMAScript` 其它版本和 `JSX` 的支持。
 
 一个环境定义了一组预定义的全局变量。
 
@@ -192,7 +187,6 @@ Eslint 会自动去 `.eslintrc.*` 或者 `package.json` 中去找配置文件。
     },
 
 如果不使用 `"browser": true`，那么在代码中使用 `window` 的时候就会报错。`window` 这个全局变量在开启 `"browser": true` 有效。
-
 
 需要使用 `babel-eslint` 作为解析器。否则箭头解析报错。
 
@@ -232,6 +226,26 @@ react-hot-loader 在安装后一个小时也升级了。
         console.log(response.headers);
         console.log(response.config);
       });
+      
+## 装饰器语法的配置
+
+使用 `babel-loader8.xx`,对应使用 `babel7.xx`。其中装饰器语法在 `.babelrc` 中的配置如下：
+
+    "plugins": [
+        // decorators 和 class-properties 的顺序很重要，不能颠倒, 后面的参数也必须有
+       ["@babel/plugin-proposal-decorators", { "legacy": true }],
+       ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+    ]
+   
+在 `babel-eslint10.xx` 中为了使用原来的 `装饰器在 export 之前` 的写法，需在配置文件 `.eslintrc.*` 中做如下配置。
+
+    parserOptions": {
+        "ecmaFeatures": {
+            // 兼容旧的装饰器语法
+            "legacyDecorators": true
+        }
+    }
+
 
 
 
