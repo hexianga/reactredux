@@ -20,12 +20,3 @@
  
 **比如是一个简单的字符串前后值一样就不会触发渲染，但是如果是一个对象，虽然对象前后的值一样，但是地址空间不一样，还是会触发重新渲染。**
 
-## ES6 中子类继承父类的参数
-
-    constructor(props) {
-        super(props);
-    }
-    
-    Component 父类函数:
-    
-    function Component(props, context, updater) 

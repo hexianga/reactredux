@@ -35,15 +35,25 @@ export default class Home extends Component {
 
   handleClick = () => {
     const { dispatch } = this.props
-    dispatch({ type: 'REQUESTSTART' })
+    this.action(dispatch);
+    //
+    // setTimeout(() => {
+    //   // ();
+    // }, 1000)
+    // dispatch({ type: 'REQUESTSTART' })
     // dispatch({ type: 'LOGINED' })
   }
+
+  // 这样写不就是解决了异步的问题吗？
+  action = dispatch => setTimeout(() => {
+    dispatch({ type: 'REQUESTSTART' })
+  }, 1000)
 
   secondClick = (e) => {
     e.stopPropagation()
     const { dispatch } = this.props
 
-    dispatch({ type: 'REQUESTSTART' })
+    dispatch({ type: 'REQUESTSUCCESS' })
   }
 
   render() {
@@ -64,4 +74,4 @@ Home.propTypes = {
   dispatch: PropTypes.func,
 }
 
-// export default connect(stateToProps)(Home);
+// export default hot(module)(connect(stateToProps)(Home));

@@ -1,8 +1,14 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import ReactDOM from 'react-dom';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import Router from './router';
+import { hot } from 'react-hot-loader'
+import Router from './router'
+
+const logger = createLogger();
+console.log(module, hot)
 
 // 1. 初始化状态
 const initState = {
@@ -38,13 +44,12 @@ function loginReducer(state = initState.login, action) {
       return state;
   }
 }
-
 function requestReducer(state = initState.httpStatus, action) {
   switch (action.type) {
     case ACTIONS.REQUESTSTART: {
       return {
         ...state,
-        // loading: true,
+        loading: true,
       };
     }
     case ACTIONS.REQUESTSUCCESS: {
@@ -75,7 +80,7 @@ const AppReducer = combineReducers({
 
 // 5. 创建 store
 // 第二参数是初始状态，因为在 reducer 里面使用了默认值，所有可以不传，默认在创建的时候会通过 dispatch 初始化
-const store = createStore(AppReducer);
+const store = createStore(AppReducer, applyMiddleware(thunk, logger));
 
 // 创建一个 div，然后插入 body 中作为根元素
 const rootDom = document.createElement('div');
@@ -89,4 +94,5 @@ function AppComponent() {
   );
 }
 
-ReactDom.render(<AppComponent />, rootDom);
+
+ReactDOM.render(<AppComponent />, rootDom);

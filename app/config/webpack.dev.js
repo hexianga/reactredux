@@ -20,6 +20,7 @@ module.exports = webpackMerge(commonConfig, {
     hot: true,
     publicPath: '/',
     contentBase: path.join(root, 'dist'),
+    historyApiFallback: true, // 使用 BrowerRouter 组件
   },
 });
 // contentBase 中的资源将会通过域名 + publicPath + 文件名访问到。

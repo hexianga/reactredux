@@ -5,9 +5,13 @@
   ],
   "plugins": [
     // decorators 和 class-properties 的顺序很重要，不能颠倒
+    // 使用装饰器和箭头函数
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+    // 使用 async 和 await 语法
     "@babel/plugin-transform-runtime",
+    // 按需导入。同时用来导入 CSS 文件
+    ["import", { "libraryName":  "antd", "style": "css" }],
     "react-hot-loader/babel"
   ]
 }

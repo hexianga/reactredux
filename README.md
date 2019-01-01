@@ -245,7 +245,21 @@ react-hot-loader 在安装后一个小时也升级了。
             "legacyDecorators": true
         }
     }
+    
+## 使用 redux 中间件
 
+#### redux-logger
+为了能够在每一个 `dispatch` 一个 `action` 后观察 `state` 的变化并且观察发布的是哪一个 `action`。
+
+使用 `redux-logger` 中间件，在每一次发布一个 `action` 的时候打印 `state` 和 `action`。
+
+`logger` 中间件一定放在中间件的最后，否则打印出的结果不准确。
+
+#### redux-thunk 
+
+其实使用中间件就是一种方法的功能增强。运用了 `AOP` 面向切面编程的思想。
+
+`redux` 种封装的是核心的代码，但是具有很高的扩展性。使用中间件就是对原来函数功能饿一种增强。
 
 
 
