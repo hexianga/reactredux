@@ -22,12 +22,15 @@ export default class Home extends Component {
   // 通过属性来推导状态，props 改变或者 setState 调用会执行
   // 替代 componentWillReceiveProps
   static getDerivedStateFromProps(nextprops, nextState) {
-    console.log('=================', nextprops, nextState);
-    return null;
+    console.log('getDerivedStateFromProps', nextprops, nextState);
+
+    return {
+      shows: true,
+    }
   }
 
-  componentDidUpdate() {
-
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate', prevProps, prevState, this.state);
   }
 
   // render 之后，componentDidUpdate 之前
@@ -39,7 +42,7 @@ export default class Home extends Component {
   // getSnapshotBeforeUpdate()
   // componentDidUpdate()
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('=================', prevProps, prevState);
+    console.log('getSnapshotBeforeUpdate', prevProps, prevState);
     return null;
   }
 
@@ -57,7 +60,7 @@ export default class Home extends Component {
       }
     }
 
-    console.log('=========', new MyTestableClass()) // true
+    // console.log('=========', new MyTestableClass()) // true
   }
 
   handleClick = () => {
