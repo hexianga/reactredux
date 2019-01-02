@@ -4,11 +4,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { hot } from 'react-hot-loader'
 import Router from './router'
-
-const logger = createLogger();
-console.log(module, hot)
+import './assets/styles/common.scss'
 
 // 1. 初始化状态
 const initState = {
@@ -80,6 +77,7 @@ const AppReducer = combineReducers({
 
 // 5. 创建 store
 // 第二参数是初始状态，因为在 reducer 里面使用了默认值，所有可以不传，默认在创建的时候会通过 dispatch 初始化
+const logger = createLogger();
 const store = createStore(AppReducer, applyMiddleware(thunk, logger));
 
 // 创建一个 div，然后插入 body 中作为根元素

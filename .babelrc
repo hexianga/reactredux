@@ -11,7 +11,8 @@
     // 使用 async 和 await 语法
     "@babel/plugin-transform-runtime",
     // 按需导入。同时用来导入 CSS 文件
-    ["import", { "libraryName":  "antd", "style": "css" }],
-    "react-hot-loader/babel"
+    ["import", { "libraryName":  "antd", "style": "css" }]
+    // 暂时不配置热加载
+    // "react-hot-loader/babel"
   ]
 }

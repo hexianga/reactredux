@@ -40,5 +40,7 @@ module.exports = {
     "jsx-a11y/no-static-element-interactions": [0],
     // 当一个元素是非必传时可以不用设置默认值
     "react/require-default-props": [0],
+    // 强制 boolean使用简写
+    "react/jsx-boolean-value": [0]
   }
 };

@@ -1,0 +1,36 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #8b7575;
+  flex-basis: 60px;
+
+
+  .logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: url("../../assets/images/logo.jpg") no-repeat -5px 0;
+    background-size: cover;
+  }
+  .logo-title {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 15px;
+  }
+}
+
