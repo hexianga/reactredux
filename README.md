@@ -1,3 +1,4 @@
+
 ## 从头搭建一个项目的流程
 
 创建目录 --> 创建 git 仓库, 编辑 .gitignore  --> package.json --> 搭建目录结构 --> 写 webpack 配置 --> 安装软件包 --> 写业务代码
@@ -42,7 +43,7 @@ router 文件中组件的导出？
     错误写法：导出的是编译后的 React.createElement 方法
     export default <Router>
       <Switch>
-        <Route path='/' exact component={Home} />
+        <Route path='/' exact component={Index} />
       </Switch>
     </Router>
 
@@ -261,5 +262,7 @@ react-hot-loader 在安装后一个小时也升级了。
 
 `redux` 种封装的是核心的代码，但是具有很高的扩展性。使用中间件就是对原来函数功能饿一种增强。
 
-## 组件的生命周期
+#### saga 
+
+同样是 redux 的一个中间件，用来处理一步 action
 
