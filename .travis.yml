@@ -2,6 +2,13 @@ language: node_js
 node_js:
   - node
 os: osx
+
+# Specifying Stage Order and Conditions 
+stages:
+  - Test
+  - name: Deploy
+    if: branch = master
+
 install:
   - npm install
 script:
@@ -10,3 +17,13 @@ branches:
   only:
     - master
     - develop
+
+# define jobs
+jobs:
+  include:
+    - stage: Test                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
+      script: npm run build
+    - stage: Deploy
+      name: "Deploy to GCP"
+      script: npm run build
