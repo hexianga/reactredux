@@ -1,0 +1,30 @@
+.d-target{
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  position: absolute;
+  left: 100px;
+  bottom: 100px;
+}
+
+.outer{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: all 0.35s linear;
+}
+.inner{
+  width: 30px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 50%;
+  /* 这个是实现小球向上运动一点再下来的效果，由贝赛儿曲线实现 */
+  transition: all 0.35s cubic-bezier(0.39,-0.4,0.83,0.23);
+  position: absolute;
+}
+.outer.point-pre{
+  display: none;
+}
