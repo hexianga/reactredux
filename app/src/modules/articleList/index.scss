@@ -1,0 +1,25 @@
+.articleList {
+  div {
+    background: #fff;
+    line-height: 60px;
+    height: 60px;
+    padding-left: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.1);
+
+    &:hover {
+      background-color: rgba(0,0,0,.01);
+    }
+
+    h2 {
+      color: #2e3135;
+      font-weight: bold;
+      font-size: 16px;
+      display: inline;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

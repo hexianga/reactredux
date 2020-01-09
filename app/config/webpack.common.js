@@ -19,6 +19,7 @@ module.exports = {
       utils: path.resolve(root, 'src/utils/'),
       components: path.resolve(root, 'src/components/'),
       modules: path.resolve(root, 'src/modules/'),
+      'react-virtualized/List': 'react-virtualized/dist/es/List',
     },
   },
   module: {
@@ -28,13 +29,23 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       }, {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader', 
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]__[hash:base64:5]',
+            },
+          },
+          'sass-loader',
+        ],
       }, {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: path.join(root, '../node_modules'),
       }, {
-        test: /\.(png|jpg|jpeg|gif|woff|woff2|svg|ttf|eot)$/,
+        test: /\.(png|jpg|jpeg|gif|woff|woff2|svg|ttf|eot|md)$/,
         use: 'file-loader',
       },
     ],
