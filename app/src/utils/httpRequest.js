@@ -34,6 +34,30 @@ function post(url, body = {}, config = {}) {
   return axios.post(url, body, config);
 }
 
+// 只考虑 get 和 post，不考虑别的请求方式！！！！！！
+function axiosConfig = (apiName, url, payload) => {
+  let data = {}
+  let params = {}
+  let method = 'get'
+
+  // 只有 get 才是 params
+  if (!apiName.includes('_')) {
+    params = payload
+  } else {
+    method = 'post'
+    data = payload
+  }
+
+  const config = {
+    method,
+    url,
+    data,
+    params,
+  }
+
+  axios(config)
+}
+
 const httpRequest = {
   get,
   post,

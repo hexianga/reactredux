@@ -5,7 +5,8 @@ import * as style from './sidebar.scss'
 const list = {
   'books': '读书笔记',
   'ones': '随笔',
-  'aboutme': '关于我'
+  'aboutme': '关于我',
+  'musics': '歌单',
 }
 
 class SideBar extends Component {

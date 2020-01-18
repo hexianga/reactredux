@@ -1,0 +1,25 @@
+.musicList {
+  background: white;
+
+  
+
+  .queryList {
+    :global {
+      .operate-wrapper {
+        padding-left: 16px;
+
+        :not(:first-child) {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+
+  :global {
+    .ant-form-item {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+
