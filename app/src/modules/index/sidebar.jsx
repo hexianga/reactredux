@@ -7,6 +7,7 @@ const list = {
   'ones': '随笔',
   'aboutme': '关于我',
   'musics': '歌单',
+  'dayreport': '日报',
 }
 
 class SideBar extends Component {
