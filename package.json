@@ -4,8 +4,8 @@
   "description": "webpack and react",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config app/config/webpack.dev.js",
-    "build": "rimraf dist && webpack --config app/config/webpack.prod.js",
+    "start": "webpack-dev-server --config config/webpack.dev.js",
+    "build": "rimraf dist && webpack --config config/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "respository": "",

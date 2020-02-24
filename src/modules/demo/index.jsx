@@ -4,7 +4,7 @@ import Api from '../../utils/create-request'
 
 export default class Demo extends Component {
 
-  handleChange = (e) => {
+  handleChange = async (e) => {
     const response = await Api.common.upload()
 
   }

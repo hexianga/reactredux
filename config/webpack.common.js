@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
 
-// root 目录表示 app 目录
 const root = path.resolve(__dirname, '..');
 
 // webpack 的公共配置,其实就是一个对象

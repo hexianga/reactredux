@@ -1,13 +1,13 @@
 import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import HomeContainer from 'modules/home/homeContainer';
-import HomePage from 'modules/antdlayout/index';
-import Event from 'modules/event/index';
-import WebSocketTest from 'modules/websocket/index';
-import Preview from 'modules/preview/index';
-import CartAnimation from 'modules/cartanimation/index';
-import ReactList from 'modules/reactList/index';
-import Demo from 'modules/demo/index';
+import HomeContainer from 'modules/home';
+import HomePage from 'modules/antdlayout';
+import Event from 'modules/event';
+import WebSocketTest from 'modules/websocket';
+import Preview from 'modules/preview';
+import CartAnimation from 'modules/cartanimation';
+import ReactList from 'modules/reactList';
+import Demo from 'modules/demo';
 import Home from 'modules/index';
 import { history } from './utils/history'
 

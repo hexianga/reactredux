@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack'); // eslint-disable-line
 const webpackMerge = require('webpack-merge'); // eslint-disable-line
 const commonConfig = require('./webpack.common.js');
-// root 目录表示 app 目录
 const root = path.resolve(__dirname, '..');
 
 module.exports = webpackMerge(commonConfig, {
