@@ -7,6 +7,7 @@ import WebSocketTest from 'modules/websocket/index';
 import Preview from 'modules/preview/index';
 import CartAnimation from 'modules/cartanimation/index';
 import ReactList from 'modules/reactList/index';
+import Demo from 'modules/demo/index';
 import Home from 'modules/index';
 import { history } from './utils/history'
 
@@ -21,6 +22,7 @@ function AppComponent() {
         <Route path="/preview" component={Preview} />
         <Route path="/cartanimation" component={CartAnimation} />
         <Route path="/reactList" component={ReactList} />
+        <Route path="/demo" component={Demo} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>

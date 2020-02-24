@@ -6,6 +6,9 @@
 
 
 const RequestMap = {
+  common: {
+    upload: '/v1/other/upload',
+  },
   music: {
     list: '/v1/music/list',
     post_addOrUpdate: '/v1/music/addOrUpdate',
