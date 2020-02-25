@@ -7,8 +7,8 @@ import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux';
 import { call, put, takeLatest } from 'redux-saga/effects'
 import Router from './router'
-import './assets/styles/common.scss'
-import 'react-quill/dist/quill.snow.css'; 
+import 'promise-polyfill/src/polyfill';
+import './styles/index.scss'
 
 // 1. 初始化状态
 const initState = {

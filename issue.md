@@ -115,6 +115,13 @@ import(/* webpackPreload: true */ 'ChartingLibrary');
 **备注：**为什么 js，css 文件的 hash 一样?
 因为在不使用 **css** 拆分和**代码分块 (code split)**的插件前，webpack 打包后只会生成一个 **js** 文件，然后现在的 **css** 文件和 **js** 文件都是从这上面拆分出去的，拆分出去的文件的 **hash** 当然和原始文件一致。
 
+13. (s|l)css 中怎么引入 node_modules 中的 css?
+
+**css-loader** 中规定，在链接前面加上前缀 **~** 即可。[css-loader](https://webpack.docschina.org/loaders/css-loader/)
+
+在解析的时候会解析为 **require** 的形式引入文件。
+
+
 
 
 

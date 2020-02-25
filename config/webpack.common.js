@@ -58,7 +58,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash:5:5].[ext]',
+              name: '[name].[hash:5].[ext]',
               outputPath: 'assets',
             }
           }
@@ -79,8 +79,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash:5].css',
     }),
-    new BundleAnalyzerPlugin(),
-    new Visualizer()
+    // new BundleAnalyzerPlugin(), // 弹出打包分析页面
+    // new Visualizer() // 生成打包分析页面 stat.htmls
 
   ],
 
