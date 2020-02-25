@@ -13,7 +13,6 @@ module.exports = webpackMerge(commonConfig, {
     host: '0.0.0.0',
     port: 8060,
     hot: true,
-    publicPath: '/',
     contentBase: path.join(root, 'dist'),
     historyApiFallback: true, // 使用 BrowerRouter 组件
   },

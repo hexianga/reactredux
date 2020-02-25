@@ -12,9 +12,9 @@ module.exports = {
     app: path.join(root, 'src/app.jsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
   },
   output: {
-    filename: 'js/[name].[hash:5].js', // 打包后的文件名
-    path: path.join(root, 'dist/static/'), // 所有打包后文件存放的目录
-    publicPath: '/static/', // 域名和文件名之间的路径
+    filename: 'static/js/[name].[hash:5].js', // 打包后的文件名
+    path: path.join(root, 'dist/'), // 所有打包后文件存放的目录
+    publicPath: '/', // 域名和文件名之间的路径
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -59,7 +59,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[hash:5].[ext]',
-              outputPath: 'assets',
+              outputPath: 'static/assets',
             }
           }
         ]
@@ -68,7 +68,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: '../index.html',
+      filename: 'index.html',
       template: path.join(root, 'src/index.html'),
       inject: true,
       meta: {
@@ -77,7 +77,7 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:5].css',
+      filename: 'static/css/[name].[hash:5].css',
     }),
     // new BundleAnalyzerPlugin(), // 弹出打包分析页面
     // new Visualizer() // 生成打包分析页面 stat.htmls
