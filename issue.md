@@ -96,9 +96,29 @@ import(/* webpackPrefetch: true */ 'LoginModal');  // 这会生成 <link rel="pr
 import(/* webpackPreload: true */ 'ChartingLibrary');
 ```
 
-1.  网页布局文本超出了容器区域？
+1. 网页布局文本超出了容器区域？
 
 第一种情况，文本外层容器设置了比较大的定宽。第二种没有设置文本截断。
+
+11. 各类文件打包后的目录配置？
+
+- js文件：配置 output 中的 path。
+- css 文件：配置插件 MiniCssExtractPlugin 的 **filename**, 通过文件名来创建文件夹。
+- html 文件：配置插件 **HtmlWebpackPlugin** 的 **filename**，通过文件名来创建文件夹。
+- 普通的图片和静态资源：通过 **file-loader** 的 **outputPath** 进行配置文件夹。
+
+12. 每次文件打包 hash 都会发生变化吗？
+
+- file-loader 处理的文件的 **hash** 是一个 **md5(128 bit,16 byte,32个16进制数)** 值，只有文件发生变化 hash 才会发生变化。
+- 对于 js，css 文件，他们的 hash 值是一样的，只要源码(除开静态资源)没有发生改变，hash 值就不会发生变化。
+
+**备注：**为什么 js，css 文件的 hash 一样?
+因为在不使用 **css** 拆分和**代码分块 (code split)**的插件前，webpack 打包后只会生成一个 **js** 文件，然后现在的 **css** 文件和 **js** 文件都是从这上面拆分出去的，拆分出去的文件的 **hash** 当然和原始文件一致。
+
+
+
+
+
 
 
 

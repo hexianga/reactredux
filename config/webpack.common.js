@@ -12,9 +12,9 @@ module.exports = {
     app: path.join(root, 'src/app.jsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
   },
   output: {
-    filename: '[name].[hash:5].js', // 打包后的文件名
-    path: path.join(root, 'dist/'), // 所有打包后文件存放的目录
-    publicPath: '/', // 域名和文件名之间的路径
+    filename: 'js/[name].[hash:5].js', // 打包后的文件名
+    path: path.join(root, 'dist/static/'), // 所有打包后文件存放的目录
+    publicPath: '/static/', // 域名和文件名之间的路径
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -38,7 +38,7 @@ module.exports = {
       }, {
         test: /\.scss$/,
         use: [
-          'style-loader', 
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -54,13 +54,21 @@ module.exports = {
         exclude: path.join(root, 'node_modules'),
       }, {
         test: /\.(png|jpg|jpeg|gif|woff|woff2|svg|ttf|eot|md)$/,
-        use: 'file-loader',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash:5:5].[ext]',
+              outputPath: 'assets',
+            }
+          }
+        ]
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: '../index.html',
       template: path.join(root, 'src/index.html'),
       inject: true,
       meta: {
@@ -68,7 +76,9 @@ module.exports = {
       },
     }),
 
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash:5].css',
+    }),
     new BundleAnalyzerPlugin(),
     new Visualizer()
 
