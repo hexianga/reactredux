@@ -121,6 +121,10 @@ import(/* webpackPreload: true */ 'ChartingLibrary');
 
 在解析的时候会解析为 **require** 的形式引入文件。
 
+14. 如何阻止从 node_modules 中引入的 css 被模块化处理？
+
+- 通过 @import 的方式引入 index.css 文件中。
+- 通过 import 的方式在 js 文件中引入
 
 
 

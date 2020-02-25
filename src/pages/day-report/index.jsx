@@ -1,7 +1,8 @@
 
 import React from 'react'
 import ReactQuill from 'react-quill';
-import Api from '../../utils/create-request'
+import Api from '@net/create-request'
+import 'react-quill/dist/quill.snow.css'
 import style from './style.scss'
 
 // 常见的几种富文本编辑器(还有 draft js)
@@ -37,7 +38,7 @@ class DayReport extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={style.container}>
           <ReactQuill
             value={this.state.text}
             onChange={this.handleChange}

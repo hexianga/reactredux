@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Upload } from 'antd'
-import Api from '../../utils/create-request'
+import Api from '@net/create-request'
 
 export default class Demo extends Component {
 

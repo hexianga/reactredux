@@ -19,9 +19,10 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      utils: path.resolve(root, 'src/utils/'),
+      '@net': path.resolve(root, 'src/net/'),
       components: path.resolve(root, 'src/components/'),
       modules: path.resolve(root, 'src/modules/'),
+      assets: path.resolve(root, 'src/assets/'),
       '@pages': path.resolve(root, 'src/pages/'),
       'react-virtualized/List': 'react-virtualized/dist/es/List',
     },
@@ -32,18 +33,18 @@ module.exports = {
         test: /\.css$/,
         use: [
           // 为什么在开发环境不用剥离开来作为单独的文css件？因为本地文件在内存，读取很快。
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          !isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader'
         ],
       }, {
         test: /\.scss$/,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          !isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[local]__[hash:base64:5]',
+              localIdentName: '[local]_[hash:5]',
             },
           },
           'sass-loader',
@@ -84,18 +85,19 @@ module.exports = {
 
   ],
 
-  optimization: {
-    splitChunks: {
-      chunks: (chunk) => {
-        return chunk.name !== 'antdlayout'; // 指定某些块不提取公共部分
-      },
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
-  }
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: (chunk) => {
+  //       return true
+  //       // return chunk.name !== 'antdlayout'; // 指定某些块不提取公共部分
+  //     },
+  //     cacheGroups: {
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+  //         name: 'vendors',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  // }
 };

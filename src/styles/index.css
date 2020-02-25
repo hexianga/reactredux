@@ -1,0 +1,6 @@
+@import url('./common.css'); 
+ /* ; 必须加, url 可加可不加 */
+
+/* 常见的 css @ Rule */
+/* media, keyframes, font-face, import */
+/* css url：该函数中的参数引号可有可无，单双引号无所谓。 */

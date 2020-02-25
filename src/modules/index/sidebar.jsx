@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { history } from 'utils/history.js'
+import { history } from '@net/history.js'
 import * as style from './sidebar.scss'
 
 const list = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './index.scss'
-import { history } from '../../utils/history'
+import { history } from '@net/history'
 
 const filelist = [
   {
