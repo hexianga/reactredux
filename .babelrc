@@ -1,17 +1,24 @@
 {
+  "compact": false,
   "presets": [
     "@babel/preset-env",
     "@babel/preset-react"
   ],
   "plugins": [
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css" // `style: true` 会加载 less 文件
+    }],
     // decorators 和 class-properties 的顺序很重要，不能颠倒
     // 使用装饰器和箭头函数
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose" : true }],
     // 使用 async 和 await 语法
-    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-runtime"
     // 按需导入。同时用来导入 CSS 文件
-    ["import", { "libraryName":  "antd", "style": "css" }]
+    // ["import", { "libraryName":  "antd", "style": "css" }],
+    
     // 暂时不配置热加载
     // "react-hot-loader/babel"
   ]

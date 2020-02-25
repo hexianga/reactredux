@@ -1,15 +1,17 @@
 import React from 'react';
+import LoadableComponent from './loadable'
 import { Router, Switch, Route } from 'react-router-dom';
-import HomeContainer from 'modules/home';
-import HomePage from 'modules/antdlayout';
-import Event from 'modules/event';
-import WebSocketTest from 'modules/websocket';
-import Preview from 'modules/preview';
-import CartAnimation from 'modules/cartanimation';
-import ReactList from 'modules/reactList';
-import Demo from 'modules/demo';
-import Home from 'modules/index';
 import { history } from './utils/history'
+
+const HomeContainer = LoadableComponent(() => import(/* webpackChunkName: 'home' */ 'modules/home'))
+const HomePage = LoadableComponent(() => import(/* webpackChunkName: 'antdlayout' */ 'modules/antdlayout'))
+const Event = LoadableComponent(() => import(/* webpackChunkName: 'event' */ 'modules/event'))
+const WebSocketTest = LoadableComponent(() => import(/* webpackChunkName: 'websocket' */ 'modules/websocket'))
+const Preview = LoadableComponent(() => import(/* webpackChunkName: 'preview' */ 'modules/preview'))
+const CartAnimation = LoadableComponent(() => import(/* webpackChunkName: 'cartanimation' */ 'modules/cartanimation'))
+const ReactList = LoadableComponent(() => import(/* webpackChunkName: 'reactList' */ 'modules/reactList'))
+const Demo = LoadableComponent(() => import(/* webpackPrefetch: true */ /* webpackChunkName: 'demo' */ 'modules/demo'))
+const Home = LoadableComponent(() => import(/* webpackChunkName: 'home' */ 'modules/index'))
 
 function AppComponent() {
   return (

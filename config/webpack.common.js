@@ -1,16 +1,20 @@
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const Visualizer = require('webpack-visualizer-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isDev = process.env.NODE_ENV === 'development'
 const root = path.resolve(__dirname, '..');
 
-// webpack 的公共配置,其实就是一个对象
 module.exports = {
+  mode: isDev ? 'development' : 'production',
   entry: {
-    app: path.join(root, 'src/app.jsx'),
+    app: path.join(root, 'src/app.jsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
   },
   output: {
     filename: '[name].[hash:5].js', // 打包后的文件名
     path: path.join(root, 'dist/'), // 所有打包后文件存放的目录
+    publicPath: '/', // 域名和文件名之间的路径
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -26,7 +30,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          // 为什么在开发环境不用剥离开来作为单独的文css件？因为本地文件在内存，读取很快。
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader'
+        ],
       }, {
         test: /\.scss$/,
         use: [
@@ -43,7 +51,7 @@ module.exports = {
       }, {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        exclude: path.join(root, '../node_modules'),
+        exclude: path.join(root, 'node_modules'),
       }, {
         test: /\.(png|jpg|jpeg|gif|woff|woff2|svg|ttf|eot|md)$/,
         use: 'file-loader',
@@ -59,5 +67,25 @@ module.exports = {
         viewport: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
       },
     }),
+
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin(),
+    new Visualizer()
+
   ],
+
+  optimization: {
+    splitChunks: {
+      chunks: (chunk) => {
+        return chunk.name !== 'antdlayout'; // 指定某些块不提取公共部分
+      },
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 };

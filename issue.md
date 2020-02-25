@@ -23,4 +23,83 @@
 ## 模块的引入
 
 1. 如果模块引入只写到文件夹这一层，那么文件夹下面一定要有一个 **index.js(x)** 的文件，否则就会找不到
+2. 打包的的 js 文件太大？
+>Note: The code generator has deoptimised the styling of /Users/hexiang/Project/study/reactredux/node_modules/react-dom/cjs/react-dom.development.js as it exceeds the max of 500KB.
+解决：不要打包 node_modules 中的文件。
+
+3. 现在开发环境的 app.js 15M? 打包压缩后 2.3 M。为何差距这么大？
+
+一种原因，开发环境启用了 devtool, 产生了 **source map**。关掉或者换一个合适的选项。
+
+第二没有分离 css 文件，导致 css 很大。webpack4 以上使用 **mini-css-extract-plugin** 来分离 css 文件。
+
+4. 怎么向 process.env 上写变量?
+
+**原理：**process.env 获取的是环境变量上的值，所以只需要在当前的环境变量上面设置即可。
+
+在 linux 中设置：
+
+    export NODE_ENV=production
+
+在 windows 中设置：
+
+    set NODE_ENV=production 
+
+**操作：**
+
+在 package.json 的 scripts 中的指令里面，在**指令的前面**注入变量。 
+```
+NODE_ENV=development webpack-dev-server --config config/webpack.dev.js
+```
+1. 怎么把 node_modules 中的文件单独打包？
+
+webpack4 中使用 **optimization.splitChunks** 选项将文件打包。
+
+```
+splitChunks: {
+    cacheGroups: {
+        commons: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/, // 通过正则表达式决定哪些文件被打包到一起
+            name: 'vendors',
+            chunks: 'all'
+        }
+    }
+}
+```
+
+6. 单独打包后文件仍然很大怎么办？antd 怎么按需加载？
+
+仍然很大是因为打包的时候 icons 占用了 500 多k，只要使用了 **icon** 就会有这个问题，解决方案，用自己的 **icon**。配置自己的 **alias**
+
+7. 在 windows 上脚本运行失败，不能向 process.env 上设置变量？
+
+使用 **cross-env** 这个库。完美解决这个问题。
+
+8. 怎么分析打包后的文件大小？
+
+使用两个插件
+
+- webpack-bundle-analyzer: 得到树状网页进行分析
+- webpack-visualizer-plugin：得到 stat.html 文件，是一个饼图对文件进行分析。
+ 
+9. 如何实现 js 混淆？
+
+10. 如何实现代码分离？
+
+- 多入口配置
+- webpack 中，使用 **import(/* webpackChunkName: "lodash" */ 'lodash')** 进行异步动态加载。
+- 使用 **SplitChunksPlugin** 插件提取公共的块放置重复。
+
+代码分离后怎么实现代码的预加载/预取
+```
+import(/* webpackPrefetch: true */ 'LoginModal');  // 这会生成 <link rel="prefetch" href="login-modal-chunk.js">
+import(/* webpackPreload: true */ 'ChartingLibrary');
+```
+
+1.  网页布局文本超出了容器区域？
+
+第一种情况，文本外层容器设置了比较大的定宽。第二种没有设置文本截断。
+
+
+
 

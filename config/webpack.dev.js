@@ -5,11 +5,7 @@ const commonConfig = require('./webpack.common.js');
 const root = path.resolve(__dirname, '..');
 
 module.exports = webpackMerge(commonConfig, {
-  mode: 'development',
-  output: {
-    publicPath: '/',
-  },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'none', 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
