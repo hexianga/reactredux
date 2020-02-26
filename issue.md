@@ -126,11 +126,34 @@ import(/* webpackPreload: true */ 'ChartingLibrary');
 - 通过 @import 的方式引入 index.css 文件中。
 - 通过 import 的方式在 js 文件中引入
 
+15. typescript 的文档？
 
+[typescript](https://ts.xcatliu.com/basics/declaration-files)
 
+16. ts 中报元素有隐藏 any 怎么办？
 
+配置编译选项 **--noImplicitAny** 为 **false**。表示允许存在隐式 any。
 
+17. 什么是运行时错误，什么是编译时错误？
 
+在编译时提示在 **iterm** 中的错误叫做编译时错误，将代码放在浏览器运行时在控制台抛出的错误叫做运行时错误。编译时不报错不意味着运行时不报错，编译时正确只能说明语法正确，文件引用都能找到。编译时报错不意味着代码就不能在浏览器运行。
+
+18. jsx 文件替换为 tsx 文件后报错提示找不到文件？
+
+项目重新启动即可。
+
+19. 常见的 npm -i -D 中的 -D 什么意思？
+
+-D：--save-dev
+-s：--save
+
+20 postcss-loader 的作用?
+
+PostCSS 的主要功能只有两个：第一个就是前面提到的把CSS解析成 JavaScript 可以操作的 抽象语法树结构（Abstract Syntax Tree，AST），第二个就是调用插件来处理 AST 并得到结果。
+
+21. package.json 中的 browserslist 是什么？
+
+[browserslist](https://github.com/browserslist/browserslist#readme) 用来提供公共的配置。配置满足一定条件的浏览器。
 
 
 

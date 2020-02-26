@@ -4,7 +4,7 @@ import Query from './query'
 import Api from '@net/create-request'
 import style from './style.scss'
 
-class MusicList extends React.Component {
+class MusicList extends React.Component<any, any> {
   state = {
     dataSource: [],
   }
@@ -33,6 +33,10 @@ class MusicList extends React.Component {
 
   columns = [
     {
+      width: 0,
+      title: 'id',
+      dataIndex: 'id'
+    }, {
       title: '歌名',
       dataIndex: 'title'
     }, {
@@ -73,6 +77,7 @@ class MusicList extends React.Component {
       <div className={style.musicList}>
         <Query />
         <Table
+          rowKey="id"
           pagination={pagination}
           dataSource={dataSource}
           onChange={this.onTableChange}

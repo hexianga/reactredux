@@ -9,7 +9,7 @@ const root = path.resolve(__dirname, '..');
 module.exports = {
   mode: isDev ? 'development' : 'production',
   entry: {
-    app: path.join(root, 'src/app.jsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
+    app: path.join(root, 'src/app.tsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
   },
   output: {
     filename: 'static/js/[name].[hash:5].js', // 打包后的文件名
@@ -17,7 +17,7 @@ module.exports = {
     publicPath: '/', // 域名和文件名之间的路径
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       '@net': path.resolve(root, 'src/net/'),
       components: path.resolve(root, 'src/components/'),
@@ -33,22 +33,59 @@ module.exports = {
         test: /\.css$/,
         use: [
           // 为什么在开发环境不用剥离开来作为单独的文css件？因为本地文件在内存，读取很快。
-          !isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader'
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            },
+          },
+          'postcss-loader'
         ],
       }, {
         test: /\.scss$/,
         use: [
-          !isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[local]_[hash:5]',
+              localIdentName: '[local]_[hash:base64:5]',
+              importLoaders: 1
             },
           },
+          'postcss-loader',
           'sass-loader',
         ],
+      }, {
+        test: /\.less$/,
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]_[hash:base64:5]',
+              importLoaders: 1 // 在 css-loader 前被应用到 @import 引入资源上的 loader 数
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true, // 为什么要这个选项，是不是可以不要？   // 作用：允许通过js调用antd组件
+            }
+        },
+        ],
+      }, {
+        test: /\.(ts|tsx)$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          'ts-loader'
+        ],
+        exclude: path.join(root, 'node_modules'),
       }, {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',

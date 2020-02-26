@@ -6,9 +6,8 @@ const stateToProps = state => ({
   loginStatus: state.login,
   requestStatus: state.httpStatus,
 })
-
-@connect(stateToProps)
-export default class Home extends Component {
+// @connect(stateToProps)
+class Home extends Component<any, any> {
   constructor(props) {
     super(props)
     this.state = {
@@ -56,6 +55,7 @@ export default class Home extends Component {
 
     @testable
     class MyTestableClass {
+      a: string;
       constructor() {
         this.a = 'a'
       }
@@ -121,9 +121,6 @@ export default class Home extends Component {
     )
   }
 }
-
-Home.propTypes = {
-  dispatch: PropTypes.func,
-}
-
+export default connect(stateToProps)(Home);
+// export default Home
 // export default hot(module)(connect(stateToProps)(Home));

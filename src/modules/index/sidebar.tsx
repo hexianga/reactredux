@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { history } from '@net/history.js'
-import * as style from './sidebar.scss'
+import { history } from '@net/history'
+import style from './sidebar.scss'
 
 const list = {
   'books': '读书笔记',

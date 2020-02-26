@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class HomeTest extends Component {
+class HomeTest extends Component<any, any> {
   render() {
     console.log('我是测试组件，没有监听 state');
     return (

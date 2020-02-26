@@ -8,7 +8,7 @@ import style from './style.scss'
 // 常见的几种富文本编辑器(还有 draft js)
 // https://blog.csdn.net/Loya0813/article/details/84391944
 
-class DayReport extends React.Component {
+class DayReport extends React.Component<any, any> {
   state = {
     text: ''
   }

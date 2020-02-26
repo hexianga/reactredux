@@ -3,7 +3,7 @@ import SideBar from './sidebar';
 import style from './index.scss'
 import HomeRouter from './router'
 
-class Home extends Component {
+class Home extends Component<any, any> {
   render() {
     return (
       <div>

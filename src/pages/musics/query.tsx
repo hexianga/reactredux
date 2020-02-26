@@ -1,10 +1,11 @@
 import React from 'react'
-import { Table, Row, Col, Form, Button, Select, Input } from 'antd'
+import { Table, Row, Col, Form, Button, Select, Input } from 'antd' // ts 报错
+// const { Table, Row, Col, Form, Button, Select, Input } = require('antd')  // ts 不报错
 import style from './style.scss'
 
-const { Option } = Select
+const { Option } = Select as any
 
-class Query extends React.Component {
+class Query extends React.Component<any, any> {
   state = {
     exportLoading: false,
   }

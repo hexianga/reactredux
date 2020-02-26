@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Home from './home';
 import HomeTest from './hometest';
 
-class HomeContainer extends Component {
+class HomeContainer extends Component<any, any> {
   // constructor(props) {
   //   super(props);
   // }

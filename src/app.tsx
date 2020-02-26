@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux';
 import { call, put, takeLatest } from 'redux-saga/effects'
-import Router from './router'
+import AppComponent from './router'
 import 'promise-polyfill/src/polyfill';
 import './styles/index.css'
 
@@ -133,19 +133,19 @@ function* mySaga() {
 }
 
 // 运行 saga
-sagaMiddleware.run(mySaga)
+// sagaMiddleware.run(mySaga)
 
 // 创建一个 div，然后插入 body 中作为根元素
 const rootDom = document.createElement('div');
 document.body.appendChild(rootDom);
 
-function AppComponent() {
+function App() {
   return (
     <Provider store={store}>
-      <Router />
+      <AppComponent />
     </Provider>
   );
 }
 
 
-ReactDOM.render(<AppComponent />, rootDom);
+ReactDOM.render(<App />, rootDom);
