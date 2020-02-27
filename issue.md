@@ -155,5 +155,62 @@ PostCSS 的主要功能只有两个：第一个就是前面提到的把CSS解析
 
 [browserslist](https://github.com/browserslist/browserslist#readme) 用来提供公共的配置。配置满足一定条件的浏览器。
 
+22. export default 为什么不能默认导出变量和常量？
+
+默认导出的一定是一个对象，所以只可以是 **object，function，class**。其它的只能是作为对象的属性导出。
+
+23. 什么是 UMD 模块？
+
+通用模块定义，在模块定义的时候会判断当前环境，如果 define 存在并且 define.amd 存在，说明是 AMD 环境，如果 exports 存在，说明是 commonjs 环境，如果都不存在说明是浏览器环境。
+
+针对不同的环境进行不同的模块定义。
+```
+((root, factory) => {
+  if (typeof define === 'function' && define.amd) {
+    //AMD
+    define(['jquery'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    //CommonJS
+    var $ = requie('jquery');
+    module.exports = factory($);
+  } else {
+    root.testModule = factory(root.jQuery);
+  }
+})(this, ($) => {
+    //todo
+});
+```
+
+24. webpack 打包后的文件分析？
+
+[webpack-guide](https://github.com/TooBug/webpack-guide/tree/master/examples/chapter3)
+
+25. 模块化？
+
+**AMD**: 需要引用 **require.js** 文件，然后就有了 **define，require** 这几个关键字。
+
+26. 为什么说 node 中 require, __dirname, __filename 不是全局变量？但是却能够在代码中直接使用？
+node 模块是遵循 commonJs 的。代码最后在执行的时候会被一个函数封装器进行封装，这些变量都来自函数的形参。所以其实不是全局变量。
+
+其中 exports === module.exports
+
+```
+(function (exports, require, module, __filename, __dirname) {
+    var me = {};
+    module.exports = me;
+});
+```
+
+27 require 的模块加载规则？
+
+根据路径名来看，如果是一个非相对路径，在 node 中，优先加载核心模块，再试着在 node_modules 中找，如果配置了 alias，再到 alias 中找。如果是相对路径则直接到对应的目录查找。如果路径中没有后缀，则会尝试带上 **.js/.json/.node**,通过 webpack 还可以配置其它的扩展名。
+
+
+
+
+
+
+
+
 
 
