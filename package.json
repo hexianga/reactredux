@@ -98,7 +98,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run eslint-check",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
   }
 }
