@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ReactQuill from 'react-quill';
-import Api from '@net/create-request'
+import Api from 'net/create-request'
 import 'react-quill/dist/quill.snow.css'
 import style from './style.scss'
 
@@ -10,9 +10,9 @@ import style from './style.scss'
 
 class DayReport extends React.Component<any, any> {
   state = {
-    text: ''
+    text: '',
   }
-
+   
   modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],

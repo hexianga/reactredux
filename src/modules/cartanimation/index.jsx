@@ -2,12 +2,7 @@ import React from 'react'
 import './index.css'
 
 class CartAnimation extends React.Component {
-  getElementMyShowHide = () => {
-    const ballWrapper = document.querySelector('.ball-wrapper')
-    const childElement = ballWrapper.querySelector('.point-pre');
-    return childElement;
-  }
-  
+
   componentDidMount () {
     // 计算落点的位置
     const dropArea = document.querySelector('#ttt')
@@ -19,8 +14,8 @@ class CartAnimation extends React.Component {
       outer.style.left = left + 'px';
       outer.style.top = top + 'px';
       outer.classList.remove('point-pre');
-      const leftOffset = endLeft  - left;
-      const topOffset =  endTop - top;
+      const leftOffset = endLeft - left;
+      const topOffset = endTop - top;
 
       // 这里使用定时器是为了让元素从隐藏到显示有动画出现
       setTimeout(() => {
@@ -39,22 +34,28 @@ class CartAnimation extends React.Component {
       }, 0);
     })
   }
+  
+  getElementMyShowHide = () => {
+    const ballWrapper = document.querySelector('.ball-wrapper')
+    const childElement = ballWrapper.querySelector('.point-pre');
+    return childElement;
+  }
 
-  render () {
+  render() {
     return (
       <div>
         <p>在页面的任何位置点击,将有一个小球飞入类为d-targer圆形容器中,可以连续点击</p>
-        <div id="ttt" class="d-target"></div>
-      
-        <div class="ball-wrapper">
-          <div class="outer point-pre">
-            <div class="inner"></div>
+        <div id="ttt" className="d-target" />
+
+        <div className="ball-wrapper">
+          <div className="outer point-pre">
+            <div className="inner"/>
           </div>
-          <div class="outer point-pre">
-            <div class="inner"></div>
+          <div className="outer point-pre">
+            <div className="inner"></div>
           </div>
-          <div class="outer point-pre">
-            <div class="inner"></div>
+          <div className="outer point-pre">
+            <div className="inner"></div>
           </div>
         </div>
       </div>

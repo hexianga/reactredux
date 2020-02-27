@@ -8,17 +8,17 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@net/*": ["./net/*"],
-      "components/*": ["./components/*"],
-      "modules/*": ["./modules/*"],
+      "net/*": ["./net/*"],
       "assets/*": ["./assets/*"],
-      "@pages/*": ["./pages/*"],
+      "components/*": ["./src/components/*"],
+      "modules/*": ["./src/modules/*"],
+      "@pages/*": ["./src/pages/*"],
     },
   },
   "include": [
-    "src"
+    "src", "net"
   ],
   "exclude": [
     "node_modules"

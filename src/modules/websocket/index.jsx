@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 class WebSocketTest extends Component {
   socket = null
+
   componentDidMount() {
-    this.socket = new WebSocket("ws://localhost:8181?at=hexiangfirst");
-    
+    this.socket = new WebSocket('ws://localhost:8181?at=hexiangfirst');
+
     this.socket.onopen = () => {
       console.log('connection successful');
     };
@@ -26,7 +27,7 @@ class WebSocketTest extends Component {
   sendMessage = () => {
     this.socket.send(JSON.stringify({
       at: 'hexiangfirst',
-      data: `react redux send message `
+      data: 'react redux send message '
     }))
   }
 

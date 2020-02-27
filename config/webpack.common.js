@@ -19,10 +19,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
-      '@net': path.resolve(root, 'src/net/'),
+      net: path.resolve(root, 'net/'),
       components: path.resolve(root, 'src/components/'),
       modules: path.resolve(root, 'src/modules/'),
-      assets: path.resolve(root, 'src/assets/'),
+      assets: path.resolve(root, 'assets/'),
       '@pages': path.resolve(root, 'src/pages/'),
       'react-virtualized/List': 'react-virtualized/dist/es/List',
     },

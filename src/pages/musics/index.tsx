@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, message } from 'antd'
 import Query from './query'
-import Api from '@net/create-request'
+import Api from 'net/create-request'
 import style from './style.scss'
 
 class MusicList extends React.Component<any, any> {

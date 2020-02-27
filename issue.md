@@ -205,6 +205,48 @@ node 模块是遵循 commonJs 的。代码最后在执行的时候会被一个�
 
 根据路径名来看，如果是一个非相对路径，在 node 中，优先加载核心模块，再试着在 node_modules 中找，如果配置了 alias，再到 alias 中找。如果是相对路径则直接到对应的目录查找。如果路径中没有后缀，则会尝试带上 **.js/.json/.node**,通过 webpack 还可以配置其它的扩展名。
 
+28. vscode 的默认语法检查如何开启？
+
+进入配置文件(`command + ,`, 然后选择右上角的文本 icon 进入编辑)，做如下配置：
+```
+"typescript.validate.enable": true,
+"javascript.validate.enable": true,
+```
+
+29. 怎么开启 eslint 的错误代码标识？
+
+通过配置文件只能开启 vscode 的默认的语法检测，但是不能实现自定义。所以使用第三方插件进行格式配置。
+
+安装 **eslint** 插件并且开启 **enable**，并且对当前项目配置 **eslint**，在检测到不符合规则的代码时就会报错提示。
+
+不受 **vscode** 配置文件的影响。
+
+30. 每次编译的时候怎么输出 eslint 的错误？
+
+在编译的时候执行 **eslint** 检测，配置脚本如下：
+```
+"start": "cross-env NODE_ENV=development && npm run eslint-check && webpack-dev-server --config config/webpack.dev.js",
+"eslint-check": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
+```
+
+31. 怎么在每次提交代码前对代码进行检查？
+
+使用 **husky** 这个库来实现。
+
+这个库利用 **git hooks**，在一些指令前面做一些事情。
+
+32. 怎么对提交的信息进行检测？
+
+使用 **commitlint** 结合 **husky** 对提交信息进行检测。
+```
+npm install --save-dev @commitlint/{config-conventional,cli}
+```
+
+
+
+
+
+
 
 
 
