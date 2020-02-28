@@ -6,8 +6,8 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux';
 import { call, put, takeLatest } from 'redux-saga/effects'
-import AppComponent from './router'
 import 'promise-polyfill/src/polyfill';
+import AppComponent from './router'
 import './styles/index.css'
 
 // 1. 初始化状态

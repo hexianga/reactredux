@@ -256,6 +256,39 @@ npm install --save-dev @commitlint/{config-conventional,cli}
   "typescriptreact",
 ]
 ```
+35.  webpack 中 resolve.alias 配置的路径使用的时候 eslint 报错？
+
+```
+npm i -D eslint-import-resolver-alias
+在 .eslintrc.js 中配置:
+setting: {
+  'import/resolver': {
+    alias: {
+      extensions: ['.ts', '.js', '.jsx', '.tsx'],
+      map: [
+        ['net', './net/'],
+      ],
+    }
+  }
+}
+```
+
+36. eslint 找不到 tsx 结尾的文件？
+
+```
+npm i -D eslint-plugin-import
+在 .eslintrc.js 中配置:
+'settings': {
+  "import/extensions": [
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx"
+  ],
+}
+```
+
+
 
 
 

@@ -13,7 +13,7 @@ const Loading = (props) => {
   }
 }
 
-const LoadableComponent = (loader) => {
+const LoadableComponent: any = (loader) => {
   return Loadable({
     loader,
     // delay: 300, // 默认 200

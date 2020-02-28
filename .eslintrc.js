@@ -9,6 +9,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
   ],
   'plugins': [
+    'react',
     '@typescript-eslint',
   ],
   'env': {
@@ -52,6 +53,33 @@ module.exports = {
     'func-names': 0,
     'comma-dangle': 0,
     // 是否允许 debugger 语句
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 所有的扩展可忽略，处理 svg
+    "import/extensions": ["error", "never", { "svg": "always" }],
+    // 是否允许隐藏的 any
+    "@typescript-eslint/no-explicit-any": [0],
+    "@typescript-eslint/no-unused-vars": [2],
+    // 箭头函数的括号
+    "arrow-parens": [0],
+  },
+  'settings': {
+    "import/extensions": [
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx"
+    ],
+    'import/resolver': {
+      alias: {
+        extensions: ['.ts', '.js', '.jsx', '.tsx'],
+        map: [
+          ['net', './net/'],
+          ['components', './src/components/'],
+          ['modules', './src/modules/'],
+          ['assets', './assets/'],
+          ['@pages', './src/pages/'],
+        ],
+      }
+    }
   }
 };

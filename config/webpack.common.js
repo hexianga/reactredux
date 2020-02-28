@@ -24,7 +24,6 @@ module.exports = {
       modules: path.resolve(root, 'src/modules/'),
       assets: path.resolve(root, 'assets/'),
       '@pages': path.resolve(root, 'src/pages/'),
-      'react-virtualized/List': 'react-virtualized/dist/es/List',
     },
   },
   module: {

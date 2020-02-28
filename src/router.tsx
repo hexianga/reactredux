@@ -3,13 +3,13 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { history } from 'net/history'
 import LoadableComponent from './loadable'
 
-const HomePage = LoadableComponent(() => import(/* webpackChunkName: 'antdlayout' */ 'modules/antdlayout'))  as any
-const Event = LoadableComponent(() => import(/* webpackChunkName: 'event' */ 'modules/event'))  as any
-const WebSocketTest = LoadableComponent(() => import(/* webpackChunkName: 'websocket' */ 'modules/websocket'))  as any
-const Preview = LoadableComponent(() => import(/* webpackChunkName: 'preview' */ 'modules/preview'))  as any
-const CartAnimation = LoadableComponent(() => import(/* webpackChunkName: 'cartanimation' */ 'modules/cartanimation'))  as any
-const ReactList = LoadableComponent(() => import(/* webpackChunkName: 'reactList' */ 'modules/reactList'))  as any
-const Demo = LoadableComponent(() => import(/* webpackPrefetch: true */ /* webpackChunkName: 'demo' */ 'modules/demo'))  as any
+const HomePage = LoadableComponent(() => import(/* webpackChunkName: 'antdlayout' */ 'modules/antdlayout')) as any
+const Event = LoadableComponent(() => import(/* webpackChunkName: 'event' */ 'modules/event')) as any
+const WebSocketTest = LoadableComponent(() => import(/* webpackChunkName: 'websocket' */ 'modules/websocket')) as any
+const Preview = LoadableComponent(() => import(/* webpackChunkName: 'preview' */ 'modules/preview')) as any
+const CartAnimation = LoadableComponent(() => import(/* webpackChunkName: 'cartanimation' */ 'modules/cartanimation')) as any
+const ReactList = LoadableComponent(() => import(/* webpackChunkName: 'reactList' */ 'modules/reactList')) as any
+const Demo = LoadableComponent(() => import(/* webpackPrefetch: true */ /* webpackChunkName: 'demo' */ 'modules/demo')) as any
 const Home = LoadableComponent(() => import(/* webpackChunkName: 'home' */ 'modules/index')) as any
 
 class AppComponent extends React.Component<any, any> {
