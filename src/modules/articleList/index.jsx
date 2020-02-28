@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { history } from 'net/history' 
+import { history } from 'net/history'
 import style from './index.scss'
 
 const filelist = [
@@ -35,13 +35,11 @@ class Home extends Component {
     return (
       <div className={style.articleList}>
         {
-          filelist.map(file => {
-            return (
-              <div onClick={() => this.gotoArticle(file.id)} key={file.id}>
-                <h2>{file.title}</h2>
-              </div>
-            )
-          })
+          filelist.map(file => (
+            <div onClick={() => this.gotoArticle(file.id)} key={file.id}>
+              <h2>{file.title}</h2>
+            </div>
+          ))
         }
       </div>
     )

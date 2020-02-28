@@ -13,7 +13,7 @@ let rectInfo = null
 // First与Last两个状态之间的缩放比例
 let scaleValue = 1
 // 生成初始测试数据
-let listData = Array(10).fill().map(() => {
+const listData = Array(10).fill().map(() => {
   const width = getSize()
   const height = getSize()
   return {
@@ -24,25 +24,28 @@ let listData = Array(10).fill().map(() => {
 })
 
 // 获取在 200-900之间的随机整数
-function getSize () {
+function getSize() {
   return Math.round(Math.random() * 700 + 200)
 }
 // 生成随机 16进制颜色
-function color16(){
-  return ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6)
+function color16() {
+  return (`00000${(Math.random() * 0x1000000 << 0).toString(16)}`).substr(-6)
 }
 
 class Preview extends React.Component {
   previewRef = React.createRef()
+
   state = {
     previewStatus: 0,
     previewImgInfo: null
   }
-  componentDidUpdate () {
+
+  componentDidUpdate() {
     // card 预览
     this.updatePreviewStatus()
   }
-  updatePreviewStatus () {
+
+  updatePreviewStatus() {
     if (this.state.previewStatus === 1) {
       // Last + Invert
       if (previewVisibleStatus === 1) {
@@ -63,7 +66,8 @@ class Preview extends React.Component {
       }, 0)
     }
   }
-  previewItem (status, previewImgInfo = null, e) {
+
+  previewItem(status, previewImgInfo = null, e) {
     previewVisibleStatus = status
     if (previewVisibleStatus === 1) {
       currentPreviewEle = e.target
@@ -81,7 +85,8 @@ class Preview extends React.Component {
       })
     }
   }
-  transEnd (e) {
+
+  transEnd(e) {
     if (previewVisibleStatus === 2 && previewVisibleStatus !== 3) {
       previewVisibleStatus = 3
       this.setState({
@@ -89,7 +94,8 @@ class Preview extends React.Component {
       })
     }
   }
-  render () {
+
+  render() {
     const { previewStatus, previewImgInfo } = this.state
     return (
       <>
@@ -100,7 +106,8 @@ class Preview extends React.Component {
                 key={index}
                 className="pic-item"
                 onClick={this.previewItem.bind(this, 1, item)}
-                title="点击预览">
+                title="点击预览"
+              >
                 <img src={item.bgPic} alt="" className="pic" />
               </li>
             ))
@@ -109,11 +116,13 @@ class Preview extends React.Component {
         {
           (previewVisibleStatus === 1 || previewVisibleStatus === 2) ? (
             <>
-              <div className="preview-box"
+              <div
+                className="preview-box"
                 onClick={this.previewItem.bind(this, 2)}
                 style={{
-                  opacity: previewStatus === 3 && previewVisibleStatus !== 2 ? .65 : 0
-                }}></div>
+                  opacity: previewStatus === 3 && previewVisibleStatus !== 2 ? 0.65 : 0
+                }}
+              />
               <img
                 ref={this.previewRef}
                 className={`img${(previewStatus === 3 && previewVisibleStatus === 1) || previewVisibleStatus === 2 ? ' active' : ''}`}
@@ -126,7 +135,8 @@ class Preview extends React.Component {
                 }}
                 onClick={this.previewItem.bind(this, 2)}
                 onTransitionEnd={this.transEnd.bind(this)}
-                alt="" />
+                alt=""
+              />
             </>
           ) : null
         }

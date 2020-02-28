@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Article from '../article';
 import MusicList from '@pages/musics';
 import DayReport from '@pages/day-report';
+import Article from '../article';
 import ArticleList from '../articleList';
 
 export default ({ match }) => {
@@ -16,5 +16,5 @@ export default ({ match }) => {
         <Route path={`${path}/:id`} component={ArticleList} />
       </Switch>
     </>
-  )  
+  )
 }

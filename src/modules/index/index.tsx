@@ -9,7 +9,7 @@ class Home extends Component<any, any> {
       <div>
         <SideBar />
         <div className={style.containerWrapper}>
-          <HomeRouter match={this.props.match}/>
+          <HomeRouter match={this.props.match} />
         </div>
       </div>
     )

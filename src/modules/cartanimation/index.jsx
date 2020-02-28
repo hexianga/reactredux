@@ -2,17 +2,16 @@ import React from 'react'
 import './index.css'
 
 class CartAnimation extends React.Component {
-
-  componentDidMount () {
+  componentDidMount() {
     // 计算落点的位置
     const dropArea = document.querySelector('#ttt')
     const { left: endLeft, top: endTop } = dropArea.getBoundingClientRect()
     document.addEventListener('click', (event) => {
       const left = event.clientX;
-      const top  = event.clientY;
+      const top = event.clientY;
       const outer = this.getElementMyShowHide();
-      outer.style.left = left + 'px';
-      outer.style.top = top + 'px';
+      outer.style.left = `${left}px`;
+      outer.style.top = `${top}px`;
       outer.classList.remove('point-pre');
       const leftOffset = endLeft - left;
       const topOffset = endTop - top;
@@ -30,11 +29,10 @@ class CartAnimation extends React.Component {
           outer.style.transform = ''
           inner.style.transform = ''
         }, 380)
-        
       }, 0);
     })
   }
-  
+
   getElementMyShowHide = () => {
     const ballWrapper = document.querySelector('.ball-wrapper')
     const childElement = ballWrapper.querySelector('.point-pre');
@@ -49,13 +47,13 @@ class CartAnimation extends React.Component {
 
         <div className="ball-wrapper">
           <div className="outer point-pre">
-            <div className="inner"/>
+            <div className="inner" />
           </div>
           <div className="outer point-pre">
-            <div className="inner"></div>
+            <div className="inner" />
           </div>
           <div className="outer point-pre">
-            <div className="inner"></div>
+            <div className="inner" />
           </div>
         </div>
       </div>

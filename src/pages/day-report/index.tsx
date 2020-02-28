@@ -12,12 +12,12 @@ class DayReport extends React.Component<any, any> {
   state = {
     text: '',
   }
-   
+
   modules = {
     toolbar: [
-      [{ 'header': [1, 2, false] }],
-      ['bold', 'italic', 'underline','strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
       ['link', 'image'],
       ['clean']
     ],
@@ -39,16 +39,16 @@ class DayReport extends React.Component<any, any> {
   render() {
     return (
       <div className={style.container}>
-          <ReactQuill
-            value={this.state.text}
-            onChange={this.handleChange}
-            theme="snow"
-            modules={this.modules}
-            formats={this.formats}
-          />
+        <ReactQuill
+          value={this.state.text}
+          onChange={this.handleChange}
+          theme="snow"
+          modules={this.modules}
+          formats={this.formats}
+        />
       </div>
     )
   }
 }
-  
+
 export default DayReport

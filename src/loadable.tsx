@@ -3,26 +3,33 @@ import Loadable from 'react-loadable';
 
 const Loading = (props) => {
   if (props.error) {
-    return <div>Error! <button onClick={ props.retry }>Retry</button></div>;
-  } else if (props.timedOut) {
-    return <div>Taking a long time... <button onClick={ props.retry }>Retry</button></div>;
-  } else if (props.pastDelay) {
+    return (
+      <div>
+        Error!
+        <button onClick={props.retry}>Retry</button>
+      </div>
+    );
+  } if (props.timedOut) {
+    return (
+      <div>
+        Taking a long time...
+        <button onClick={props.retry}>Retry</button>
+      </div>
+    );
+  } if (props.pastDelay) {
     return <div>Loading...</div>;
-  } else {
-    return null;
   }
+  return null;
 }
 
-const LoadableComponent: any = (loader) => {
-  return Loadable({
-    loader,
-    // delay: 300, // 默认 200
-    // timeout: 10000,
-    loading() {
-      return <div>Loading...</div>
-    }
-  })
-};
+const LoadableComponent: any = (loader) => Loadable({
+  loader,
+  // delay: 300, // 默认 200
+  // timeout: 10000,
+  loading() {
+    return <div>Loading...</div>
+  }
+});
 
 export default LoadableComponent
 
@@ -34,4 +41,3 @@ export default LoadableComponent
 // onMouseOver = () => {
 //   LoadableBar.preload();
 // };
-

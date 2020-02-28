@@ -3,11 +3,11 @@ import { history } from 'net/history'
 import style from './sidebar.scss'
 
 const list = {
-  'books': '读书笔记',
-  'ones': '随笔',
-  'aboutme': '关于我',
-  'musics': '歌单',
-  'dayreport': '日报',
+  books: '读书笔记',
+  ones: '随笔',
+  aboutme: '关于我',
+  musics: '歌单',
+  dayreport: '日报',
 }
 
 class SideBar extends Component {
@@ -27,23 +27,21 @@ class SideBar extends Component {
     return (
       <div className={style.sideBarWrapper}>
         <ul className={style.categoryWrapper}>
-         {
-           Object.keys(list).map((category) => {
-             return (
-              <li
-                className={selectedCategory === category ? style.selectedCategory : ''}
-                key={category}
-                onClick={() => this.goToPage(category)}
-              >
-                {list[category]}
-              </li>
-             )
-           })
+          {
+           Object.keys(list).map((category) => (
+             <li
+               className={selectedCategory === category ? style.selectedCategory : ''}
+               key={category}
+               onClick={() => this.goToPage(category)}
+             >
+               {list[category]}
+             </li>
+           ))
          }
         </ul>
       </div>
     )
-  } 
+  }
 }
 
 export default SideBar;

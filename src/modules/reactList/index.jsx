@@ -23,7 +23,7 @@ const rowRenderer = (props) => {
 }
 
 class ReactList extends Component {
-  render () {
+  render() {
     return (
       <List
         width={300}
@@ -33,7 +33,6 @@ class ReactList extends Component {
         rowRenderer={rowRenderer}
       />
     )
-    
   }
 }
 

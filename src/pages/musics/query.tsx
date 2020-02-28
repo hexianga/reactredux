@@ -1,5 +1,7 @@
 import React from 'react'
-import { Table, Row, Col, Form, Button, Select, Input } from 'antd' // ts 报错
+import {
+  Table, Row, Col, Form, Button, Select, Input
+} from 'antd' // ts 报错
 // const { Table, Row, Col, Form, Button, Select, Input } = require('antd')  // ts 不报错
 import style from './style.scss'
 
@@ -11,7 +13,7 @@ class Query extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    document.title = "喜爱音乐列表"
+    document.title = '喜爱音乐列表'
     this.getMusicList()
   }
 
@@ -44,7 +46,7 @@ class Query extends React.Component<any, any> {
     }
   }
 
-  render () {
+  render() {
     const { getFieldDecorator } = this.props.form
     const { exportLoading } = this.state
 
@@ -60,7 +62,8 @@ class Query extends React.Component<any, any> {
             <Col span={6}>
               <Form.Item label="原唱">
                 {getFieldDecorator('originSinger')(<Input placeholder="请输入原唱" allowClear />)}
-              </Form.Item></Col>
+              </Form.Item>
+            </Col>
             <Col span={6}>
               <Form.Item label="演唱">
                 {getFieldDecorator('singer')(<Input placeholder="请输入演唱者" allowClear />)}
@@ -72,27 +75,26 @@ class Query extends React.Component<any, any> {
                   <Select placeholder="请选择来源" allowClear>
                     <Option value={1}>我想和你唱</Option>
                     <Option value={2}>抖音</Option>
-                    <Option value={3}></Option>
+                    <Option value={3} />
                   </Select>
                 )}
               </Form.Item>
             </Col>
           </Row>
           <Row>
-            <Col span={18}/>
+            <Col span={18} />
             <Col span={6}>
               <div className="operate-wrapper">
                 <Button type="primary">查询</Button>
                 <Button type="primary" onClick={this.resetForm}>重置</Button>
                 <Button type="primary" loading={exportLoading} onClick={this.exportMusicList}>导出</Button>
               </div>
-              </Col>
+            </Col>
           </Row>
         </Form>
       </div>
-    ) 
+    )
   }
 }
 
 export default Form.create()(Query)
-

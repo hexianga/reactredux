@@ -33,8 +33,8 @@ const ACTIONS = {
 
 // 3. 创建 ruducer
 function loginReducer(state = initState.login, action) {
-  switch (action.type) {   
-          case ACTIONS.LOGINED: {
+  switch (action.type) {
+    case ACTIONS.LOGINED: {
       return true;
     }
     case ACTIONS.UNLOGIN: {

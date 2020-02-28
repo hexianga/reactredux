@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { requestText } from './service' 
+import { requestText } from './service'
 import TestMarkown from '../../articles/test.md'
 
 class Container extends Component {

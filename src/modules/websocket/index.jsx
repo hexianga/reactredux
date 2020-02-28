@@ -21,7 +21,6 @@ class WebSocketTest extends Component {
     this.socket.onclose = function (close) {
       console.log('close', close);
     };
-
   }
 
   sendMessage = () => {

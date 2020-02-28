@@ -56,6 +56,7 @@ class Home extends Component<any, any> {
     @testable
     class MyTestableClass {
       a: string;
+
       constructor() {
         this.a = 'a'
       }

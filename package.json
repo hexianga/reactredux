@@ -4,8 +4,8 @@
   "description": "webpack and react",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development && npm run eslint-check && npm run build:dev",
-    "build:dev": "webpack-dev-server --config config/webpack.dev.js",
+    "start": "npm run build:dev",
+    "build:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "eslint-check": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
     "eslint-fix": "eslint --fix --ext .js --ext .jsx --ext .ts --ext .tsx src/"

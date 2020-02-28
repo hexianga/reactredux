@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Layout, Button, Menu, Icon, Row, Col } from 'antd'
+import {
+  Layout, Button, Menu, Icon, Row, Col
+} from 'antd'
 import './index.scss';
 
 const { Sider, Header, Content } = Layout;

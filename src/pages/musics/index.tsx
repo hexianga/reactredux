@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, message } from 'antd'
-import Query from './query'
 import Api from 'net/create-request'
+import Query from './query'
 import style from './style.scss'
 
 class MusicList extends React.Component<any, any> {
@@ -58,11 +58,11 @@ class MusicList extends React.Component<any, any> {
   ]
 
   onTableChange = (pagination) => {
-      this.pagination.pageSize = pagination.pageSize
-      this.pagination.page = pagination.current
+    this.pagination.pageSize = pagination.pageSize
+    this.pagination.page = pagination.current
   }
 
-  render () {
+  render() {
     const { dataSource } = this.state
     console.log('dataSource', dataSource)
 
@@ -84,9 +84,8 @@ class MusicList extends React.Component<any, any> {
           columns={this.columns}
         />
       </div>
-    ) 
+    )
   }
 }
 
 export default MusicList
-

@@ -1,3 +1,7 @@
+// eslint --fix 
+// 该指令可以使用，只会修改一些 空格，换行，删除空行，引号的错误。标签是否自关闭。
+// 一个变量没有使用并不会删除。
+
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
