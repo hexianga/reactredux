@@ -1,7 +1,7 @@
 import React from 'react';
-import LoadableComponent from './loadable'
 import { Router, Switch, Route } from 'react-router-dom';
 import { history } from 'net/history'
+import LoadableComponent from './loadable'
 
 const HomePage = LoadableComponent(() => import(/* webpackChunkName: 'antdlayout' */ 'modules/antdlayout'))  as any
 const Event = LoadableComponent(() => import(/* webpackChunkName: 'event' */ 'modules/event'))  as any

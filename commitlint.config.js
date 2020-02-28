@@ -10,6 +10,9 @@
 // post-commit               pre-merge-commit          update.sample
 // post-merge                pre-push
 
+// husky 中，git 命令行中的参数可以通过 HUSKY_GIT_PARAMS and HUSKY_GIT_STDIN 获取
+// "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"  // HUSKY_GIT_PARAMS === .git/COMMIT_EDITMSG
+
 // type(scope?): subject  #scope is optional
 module.exports = {
   parserPreset: 'conventional-changelog-conventionalcommits',

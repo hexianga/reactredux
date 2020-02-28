@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { history } from 'net/history'
+import { history } from 'net/history' 
 import style from './index.scss'
 
 const filelist = [
@@ -17,15 +17,17 @@ const filelist = [
   }
 ]
 class Home extends Component {
-  state = {
-    filelist: filelist,
+  constructor(props) {
+    super(props)
+    this.state = {
+      filelist,
+    }
   }
 
-  componentDidMount () {
-
+  componentDidMount() { // eslint-disable
   }
 
-  gotoArticle = (fileId) => {
+  gotoArticle = async (fileId) => {
     history.push(`/article/${fileId}`)
   }
 
