@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDev = process.env.NODE_ENV === 'development'
 const root = path.resolve(__dirname, '..');
 
-console.log('process.env.NODE_ENV ', process.env.NODE_ENV)
 module.exports = {
   mode: isDev ? 'development' : 'production',
   entry: {
@@ -107,7 +106,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(root, 'src/index.html'),
+      template: path.join(root, 'index.html'),
       inject: true,
       meta: {
         viewport: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',

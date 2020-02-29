@@ -288,9 +288,42 @@ npm i -D eslint-plugin-import
 }
 ```
 
+37. 怎么搜索 node_modules 中的文件？
 
+[vscode 的配置文件](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options)
 
+打开 **vscode** 的设置面板,两个 tab(user, workspace)，选择 **workspace**。然后点击右上角 icon 进行编辑
 
+```
+"search.exclude": {
+  "**/node_modules": false // 查文件中的内容
+},
+"search.useIgnoreFiles": false // 查文件
+```
+
+38. gitlab ci 的配置？
+
+[gitlab 的配置文档](https://docs.gitlab.com/ee/user/gitlab_com/#shared-runners)
+
+- 针对一个项目配置相应的 `runner`，`runner` 用来执行 job。runner 分为 `Specific Runners` 和 `Shared Runners`。
+- `runner` 可以在任意一台机器上安装，然后注册到 `gitlab` 即可。
+- 为什么要配置 `Specific Runners`？
+
+>They’re free to use for public open source projects and limited to 2000 CI minutes per month per group for private projects. More minutes can be purchased, 
+
+`Shared Runners` 有使用间的限制，每个组每个月不能超过 2000 分钟，所以有必要创建自己的 `runner`。其实也就相当于在**自己的服务器**上面安装并且启动一个服务。
+
+可以安装 `runner` 到 `kubernetes` 集群上。但是构建 **kubernetes** 太麻烦。还是将 **runner** 部署在自己服务器上比较好。
+
+39. docker 安装使用
+
+[docker 的安装使用文档](https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce)
+
+40. 怎么理解 peerDependencies(对等依赖)？
+
+当前的包或许不会使用这个包，但是当这个包被使用的时候，所在的宿主环境中的某些包的版本必须符合某个特定的要求。
+
+宿主包依赖于当前的包，但是当前的包也依赖于宿主包，所以是对等的依赖。
 
 
 

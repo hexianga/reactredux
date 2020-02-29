@@ -18,7 +18,7 @@
     },
   },
   "include": [
-    "src", "net"
+    "src", "net", "global.d.ts"
   ],
   "exclude": [
     "node_modules"
