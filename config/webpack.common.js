@@ -74,7 +74,7 @@ module.exports = {
             options: {
               javascriptEnabled: true, // 为什么要这个选项，是不是可以不要？   // 作用：允许通过js调用antd组件
             }
-        },
+          },
         ],
       }, {
         test: /\.(ts|tsx)$/,
