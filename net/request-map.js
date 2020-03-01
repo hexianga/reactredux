@@ -7,13 +7,17 @@
 
 const RequestMap = {
   common: {
-    upload: '/v1/other/upload',
+    upload: '/other/upload',
   },
   music: {
-    list: '/v1/music/list',
-    post_addOrUpdate: '/v1/music/addOrUpdate',
-    delete_delete: '/v1/music/delete',
-    post_export: '/v1/music/export',
+    list: '/music/list',
+    post_addOrUpdate: '/music/addOrUpdate',
+    delete_delete: '/music/delete',
+    post_export: '/music/export',
+  },
+  dayreport: {
+    post_save: '/dayreport/save',
+    getContent: '/dayreport/getContent',
   }
 }
 

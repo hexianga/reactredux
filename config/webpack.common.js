@@ -9,7 +9,7 @@ const root = path.resolve(__dirname, '..');
 module.exports = {
   mode: isDev ? 'development' : 'production',
   entry: {
-    app: path.join(root, 'src/app.tsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
+    app: path.join(root, 'src/entry/app.tsx'), // 或者是 './src/app.jsx'，这个路径最后会和执行脚本的命令所在的路径进行拼接
   },
   output: {
     filename: 'static/js/[name].[hash:5].js', // 打包后的文件名
@@ -20,6 +20,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       net: path.resolve(root, 'net/'),
+      entry: path.resolve(root, 'src/entry/'),
       components: path.resolve(root, 'src/components/'),
       modules: path.resolve(root, 'src/modules/'),
       assets: path.resolve(root, 'assets/'),
@@ -106,7 +107,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(root, 'index.html'),
+      template: path.join(root, 'src/entry/index.html'),
       inject: true,
       meta: {
         viewport: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',

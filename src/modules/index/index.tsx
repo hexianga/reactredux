@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SideBar from './sidebar';
-import style from './index.scss'
 import HomeRouter from './router'
+import style from './index.scss'
 
 class Home extends Component<any, any> {
   render() {

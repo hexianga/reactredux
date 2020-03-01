@@ -1,5 +1,27 @@
 
 .container {
-  background: khaki;
+  background: white;
+  padding: 16px;
+  height: 100%;
+
+  :global {
+    .quill {
+      height: 500px;
+      margin-top: 30px;
+    }
+
+    .ql-container.ql-snow {
+      
+      &.ql-disabled {
+        background: rgba(0, 0, 0, .05);
+      }
+    }
+
+    .operate-area {
+      margin-top: 80px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
 }
 

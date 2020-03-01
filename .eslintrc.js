@@ -65,6 +65,8 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": [2],
     // 箭头函数的括号
     "arrow-parens": [0],
+    "react/state-in-constructor": [0],
+    "@typescript-eslint/camelcase": [0]
   },
   'settings': {
     "import/extensions": [

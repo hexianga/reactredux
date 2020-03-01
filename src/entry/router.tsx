@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import { history } from 'net/history'
+import history from './history'
 import LoadableComponent from './loadable'
 
 const HomePage = LoadableComponent(() => import(/* webpackChunkName: 'antdlayout' */ 'modules/antdlayout')) as any
@@ -13,7 +13,11 @@ const Demo = LoadableComponent(() => import(/* webpackPrefetch: true */ /* webpa
 const Home = LoadableComponent(() => import(/* webpackChunkName: 'home' */ 'modules/index')) as any
 
 class AppComponent extends React.Component<any, any> {
-  render() {
+  componentDidMount(): void {
+
+  }
+
+  render(): JSX.Element {
     return (
       <Router history={history}>
         <Switch>
