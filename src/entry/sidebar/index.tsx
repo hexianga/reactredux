@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from 'react';
 import { Menu } from 'antd'
 import MenuConfig from './menu'

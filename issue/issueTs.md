@@ -121,7 +121,16 @@ export function foo(p: NodeJS.Process): string;
 /// <reference path="legacy.d.ts" />
 export = jQuery;
 ```
+## typescript 取消检测
+单行忽略
 
+// @ts-ignore
+
+忽略全文
+// @ts-nocheck
+
+取消忽略全文
+// @ts-check
 
 
 

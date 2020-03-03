@@ -2,7 +2,7 @@ import RequestMap from './request-map'
 import axios from 'axios';
 
 
-const baseurl = 'http://localhost/v1'
+const baseurl = `${window.location.origin}/v1`
 // 只考虑 get 和 post，不考虑别的请求方式！！！！！！
 async function crearteRequest(apiName, url, payload) {
   let data = {}

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import {
   Table, Row, Col, Form, Button, Select, Input

@@ -5,7 +5,7 @@ const commonConfig = require('./webpack.common.js');
 const root = path.resolve(__dirname, '..');
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'none', 
+  devtool: 'none',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
@@ -16,6 +16,9 @@ module.exports = webpackMerge(commonConfig, {
     // quiet: true,
     contentBase: path.join(root, 'dist'),
     historyApiFallback: true, // 使用 BrowerRouter 组件
+    proxy: {
+      '/v1': 'http://localhost:8080'
+    }
   },
 });
 // contentBase 中的资源将会通过域名 + publicPath + 文件名访问到。

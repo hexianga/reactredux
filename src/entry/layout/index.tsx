@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from 'react';
 import SideBar from '../sidebar/index';
 import HomeRouter from '../router/index'

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import { Table, message } from 'antd'
 import Api from 'net/create-request'
