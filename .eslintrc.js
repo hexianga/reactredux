@@ -66,7 +66,9 @@ module.exports = {
     // 箭头函数的括号
     "arrow-parens": [0],
     "react/state-in-constructor": [0],
-    "@typescript-eslint/camelcase": [0]
+    "@typescript-eslint/camelcase": [0],
+    "react/jsx-props-no-spreading": [0],
+    "react/destructuring-assignment": [0]
   },
   'settings': {
     "import/extensions": [
@@ -83,7 +85,7 @@ module.exports = {
           ['components', './src/components/'],
           ['modules', './src/modules/'],
           ['assets', './assets/'],
-          ['@pages', './src/pages/'],
+          ['pages', './src/pages/'],
         ],
       }
     }

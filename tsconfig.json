@@ -9,12 +9,13 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types/", "./typings/"],
     "paths": {
       "net/*": ["./net/*"],
       "assets/*": ["./assets/*"],
       "components/*": ["./src/components/*"],
       "modules/*": ["./src/modules/*"],
-      "@pages/*": ["./src/pages/*"],
+      "pages/*": ["./src/pages/*"],
     },
   },
   "include": [

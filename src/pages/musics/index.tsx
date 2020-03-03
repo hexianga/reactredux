@@ -15,23 +15,7 @@ class MusicList extends React.Component<any, any> {
     total: 0,
   }
 
-  async componentDidMount() {
-    try {
-      const response = await Api.music.list()
-      if (response.rescode === 0) {
-        this.pagination.total = response.result.total
-        this.setState({
-          dataSource: response.result.list
-        })
-      } else {
-        message.warning(response.resmsg)
-      }
-    } catch (err) {
-      console.log('err', err)
-    }
-  }
-
-  columns = [
+  columns: Array<object> = [
     {
       width: 0,
       title: 'id',
@@ -57,14 +41,37 @@ class MusicList extends React.Component<any, any> {
     }
   ]
 
-  onTableChange = (pagination) => {
+  componentDidMount(): void {
+    this.getMusicList()
+  }
+
+  getMusicList = async (params = {}): Promise<any> => {
+    try {
+      const response = await Api.music.list({
+        page: this.pagination.page,
+        pageSize: this.pagination.pageSize,
+        ...params,
+      })
+      if (response.rescode === 0) {
+        this.pagination.total = response.result.total
+        this.setState({
+          dataSource: response.result.list
+        })
+      } else {
+        message.warning(response.resmsg)
+      }
+    } catch (err) {
+      console.log('err', err)
+    }
+  }
+
+  onTableChange = (pagination): void => {
     this.pagination.pageSize = pagination.pageSize
     this.pagination.page = pagination.current
   }
 
-  render() {
+  render(): JSX.Element {
     const { dataSource } = this.state
-    console.log('dataSource', dataSource)
 
     const pagination = {
       current: this.pagination.page,
@@ -74,15 +81,19 @@ class MusicList extends React.Component<any, any> {
     }
 
     return (
-      <div className={style.musicList}>
-        <Query />
-        <Table
-          rowKey="id"
-          pagination={pagination}
-          dataSource={dataSource}
-          onChange={this.onTableChange}
-          columns={this.columns}
-        />
+      <div className="paeg-body">
+        <div className={style.musicList}>
+          <Query getMusicList={this.getMusicList} />
+          <div className="content-table">
+            <Table
+              rowKey="id"
+              pagination={pagination}
+              dataSource={dataSource}
+              onChange={this.onTableChange}
+              columns={this.columns}
+            />
+          </div>
+        </div>
       </div>
     )
   }

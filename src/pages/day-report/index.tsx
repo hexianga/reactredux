@@ -81,8 +81,14 @@ class DayReport extends React.Component<any, any> {
           content: response.result.content,
           id: response.result.id
         })
-      } else {
+      } else if (response.rescode === 1) {
         message.warning(response.resmsg)
+      } else if (response.rescode === 2) {
+        this.setState({
+          selectedTime,
+          content: '',
+          id: undefined
+        })
       }
     } catch (err) {
       message.warning('获取数据失败！')

@@ -10,7 +10,7 @@ const Preview = LoadableComponent(() => import(/* webpackChunkName: 'preview' */
 const CartAnimation = LoadableComponent(() => import(/* webpackChunkName: 'cartanimation' */ 'modules/cartanimation')) as any
 const ReactList = LoadableComponent(() => import(/* webpackChunkName: 'reactList' */ 'modules/reactList')) as any
 const Demo = LoadableComponent(() => import(/* webpackPrefetch: true */ /* webpackChunkName: 'demo' */ 'modules/demo')) as any
-const Home = LoadableComponent(() => import(/* webpackChunkName: 'home' */ 'modules/index')) as any
+const Layout = LoadableComponent(() => import(/* webpackChunkName: 'home' */ './layout')) as any
 
 class AppComponent extends React.Component<any, any> {
   componentDidMount(): void {
@@ -28,7 +28,7 @@ class AppComponent extends React.Component<any, any> {
           <Route path="/cartanimation" component={CartAnimation} />
           <Route path="/reactList" component={ReactList} />
           <Route path="/demo" component={Demo} />
-          <Route path="/" component={Home} />
+          <Route path="/" component={Layout} />
         </Switch>
       </Router>
     );

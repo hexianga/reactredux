@@ -20,11 +20,11 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       net: path.resolve(root, 'net/'),
+      assets: path.resolve(root, 'assets/'),
       entry: path.resolve(root, 'src/entry/'),
       components: path.resolve(root, 'src/components/'),
       modules: path.resolve(root, 'src/modules/'),
-      assets: path.resolve(root, 'assets/'),
-      '@pages': path.resolve(root, 'src/pages/'),
+      pages: path.resolve(root, 'src/pages/'),
     },
   },
   module: {

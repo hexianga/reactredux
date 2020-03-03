@@ -1,9 +1,10 @@
 .containerWrapper {
   position: absolute;
   left: 150px;
+  min-width: 1200px;
+  min-height: 100%;
   right: 0;
   top: 0;
-  bottom: 0;
   padding: 20px;
   background: #f4f5f5;
 }
