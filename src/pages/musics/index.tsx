@@ -43,6 +43,9 @@ class MusicList extends React.Component<any, any> {
   ]
 
   componentDidMount(): void {
+    fetch('http://www.jd.com').then((data) => {
+      console.log(data)
+    })
     this.getMusicList()
   }
 
